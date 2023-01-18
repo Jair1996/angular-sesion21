@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthLoginGuard } from './auth/guards/auth-login.guard';
+import { AuthLogoutGuard } from './auth/guards/auth-logout.guard';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    canActivate: [AuthLogoutGuard],
+    canLoad: [AuthLogoutGuard],
   },
   {
     path: 'dashboard',
