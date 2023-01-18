@@ -24,6 +24,11 @@ export class AuthService {
     }
   }
 
+  logout() {
+    this.authentticatedUser = null;
+    localStorage.removeItem('user');
+  }
+
   verifyAuthentication(): Observable<boolean> {
     if (localStorage.getItem('user')) {
       return of(true);
