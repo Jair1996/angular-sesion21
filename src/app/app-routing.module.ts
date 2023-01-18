@@ -17,6 +17,11 @@ const routes: Routes = [
     component: NotFoundComponent,
   },
   {
+    path: '',
+    redirectTo: 'auth',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
     redirectTo: '404',
   },

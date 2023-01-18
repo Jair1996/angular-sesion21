@@ -25,6 +25,8 @@ export class LoginPageComponent {
 
     if (this.authService.authentticatedUser) {
       this.router.navigate(['/dashboard']);
+    } else {
+
     }
   }
 }
