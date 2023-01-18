@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
 
 import { users } from 'src/app/data';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +22,13 @@ export class AuthService {
       this.authentticatedUser = user;
       localStorage.setItem('user', JSON.stringify(this.authentticatedUser));
     }
+  }
+
+  verifyAuthentication(): Observable<boolean> {
+    if (localStorage.getItem('user')) {
+      return of(true);
+    }
+
+    return of(false);
   }
 }

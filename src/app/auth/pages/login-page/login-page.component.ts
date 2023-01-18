@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
+import Swal from 'sweetalert2';
+
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -21,12 +24,19 @@ export class LoginPageComponent {
   ) {}
 
   login() {
-    this.authService.login('jair2023', '123456');
+    const username = this.loginForm.get('username')?.value;
+    const password = this.loginForm.get('password')?.value;
+
+    this.authService.login(username, password);
 
     if (this.authService.authentticatedUser) {
       this.router.navigate(['/dashboard']);
     } else {
-
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Usuario o contraseña incorrecta',
+      });
     }
   }
 }
