@@ -1,1 +1,18 @@
-<p>login-page works!</p>
+<section class="min-vh-100 d-flex justify-content-center align-items-center">
+  <div>
+    <div class="mb-4">
+      <p class="text-primary fw-bold fs-3">Login</p>
+    </div>
+    <form [formGroup]="loginForm" autocomplete="off">
+      <div class="mb-3">
+        <label for="txtUsername" class="form-label">Username:</label>
+        <input type="text" class="form-control" id="txtUsername" />
+      </div>
+      <div class="mb-3">
+        <label for="txtPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" id="txtPassword" />
+      </div>
+      <button (click)="login()" type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</section>
