@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanLoad, Router } from '@angular/router';
-import { map, Observable, tap } from 'rxjs';
-import { AuthService } from '../services/auth.service';
+import { Observable, tap } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
+
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthLogoutGuard implements CanActivate, CanLoad {
+export class DashboardAuthorizationGuard implements CanActivate, CanLoad {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(): Observable<boolean> | boolean {
     return this.authService.verifyAuthentication().pipe(
-      map((resp) => !resp),
-      tap((isNotAuthenticated) => {
-        if (!isNotAuthenticated) {
-          this.router.navigate(['./dashboard/home']);
+      tap((isAuthenticated) => {
+        if (!isAuthenticated) {
+          this.router.navigate(['./auth/login']);
         }
       })
     );
@@ -22,10 +22,9 @@ export class AuthLogoutGuard implements CanActivate, CanLoad {
 
   canLoad(): Observable<boolean> | boolean {
     return this.authService.verifyAuthentication().pipe(
-      map((resp) => !resp),
-      tap((isNotAuthenticated) => {
-        if (!isNotAuthenticated) {
-          this.router.navigate(['./dashboard/home']);
+      tap((isAuthenticated) => {
+        if (!isAuthenticated) {
+          this.router.navigate(['./auth/login']);
         }
       })
     );

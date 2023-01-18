@@ -1,1 +1,37 @@
-<p>home-page works!</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="alert alert-primary" role="alert">
+      <p class="m-0 fw-b fs-6">
+        Buenos días {{ user.name }} {{ user.lastname }}.
+      </p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row row-cols-1 row-cols-lg-2 g-4">
+      <div class="col">
+        <div class="card text-bg-primary mb-3">
+          <div class="card-header">Tag</div>
+          <div class="card-body">
+            <h5 class="card-title">Tareas nuevas</h5>
+            <ul class="list-group mt-4">
+              <li class="list-group-item">Crear usuario de Juan</li>
+              <li class="list-group-item">Crear usuario de Pepe</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-warning mb-3">
+          <div class="card-header">Tag</div>
+          <div class="card-body">
+            <h5 class="card-title">Tareas en proceso</h5>
+            <ul class="list-group mt-4">
+              <li class="list-group-item">Dar de baja a usuarios</li>
+              <li class="list-group-item">Dar de baja a Maria</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

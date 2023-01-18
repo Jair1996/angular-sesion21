@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthLoginGuard } from './auth/guards/auth-login.guard';
-import { AuthLogoutGuard } from './auth/guards/auth-logout.guard';
+import { AuthAuthorizationGuard } from './auth/guards/auth-authorization.guard';
+import { DashboardAuthorizationGuard } from './dashboard/guards/dashboard-authorization.guard';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
-    canActivate: [AuthLogoutGuard],
-    canLoad: [AuthLogoutGuard],
+    canActivate: [AuthAuthorizationGuard],
+    canLoad: [AuthAuthorizationGuard],
   },
   {
     path: 'dashboard',
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-    canActivate: [AuthLoginGuard],
-    canLoad: [AuthLoginGuard],
+    canActivate: [DashboardAuthorizationGuard],
+    canLoad: [DashboardAuthorizationGuard],
   },
   {
     path: '404',
