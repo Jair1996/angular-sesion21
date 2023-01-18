@@ -6,13 +6,33 @@
     <form (ngSubmit)="login()" [formGroup]="loginForm" autocomplete="off">
       <div class="mb-3">
         <label for="txtUsername" class="form-label">Username:</label>
-        <input formControlName="username" type="text" class="form-control" id="txtUsername" />
+        <input
+          formControlName="username"
+          type="text"
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('username')"
+          id="txtUsername"
+        />
+        <div class="invalid-feedback">El campo es requerido</div>
       </div>
       <div class="mb-3">
         <label for="txtPassword" class="form-label">Password</label>
-        <input formControlName="password" type="password" class="form-control" id="txtPassword" />
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+          [class.is-invalid]="isFieldInvalid('password')"
+          id="txtPassword"
+        />
+        <div class="invalid-feedback">El campo es requerido</div>
       </div>
-      <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Login</button>
+      <button
+        [disabled]="loginForm.invalid"
+        type="submit"
+        class="btn btn-primary"
+      >
+        Login
+      </button>
     </form>
   </div>
 </section>

@@ -39,4 +39,11 @@ export class LoginPageComponent {
       });
     }
   }
+
+  isFieldInvalid(control: string) {
+    return (
+      this.loginForm.controls[control].errors &&
+      this.loginForm.controls[control].touched
+    );
+  }
 }
