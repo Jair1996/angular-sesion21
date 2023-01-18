@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanDeactivate,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { CanDeactivate } from '@angular/router';
 
 import Swal from 'sweetalert2';
 
@@ -11,12 +7,7 @@ import Swal from 'sweetalert2';
   providedIn: 'root',
 })
 export class DeactivateCreateUserGuard implements CanDeactivate<unknown> {
-  async canDeactivate(
-    component: any,
-    currentRoute: ActivatedRouteSnapshot,
-    currentState: RouterStateSnapshot,
-    nextState?: RouterStateSnapshot
-  ):  Promise<boolean> {
+  async canDeactivate(component: any): Promise<boolean> {
     const { createUserFormComponent } = component;
 
     const isFormPristine = createUserFormComponent.createForm.pristine;
@@ -33,13 +24,13 @@ export class DeactivateCreateUserGuard implements CanDeactivate<unknown> {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí',
-      cancelButtonText: 'No'
+      cancelButtonText: 'No',
     });
 
-    if(result.isConfirmed) {
-      return true
+    if (result.isConfirmed) {
+      return true;
     }
 
-    return false
+    return false;
   }
 }

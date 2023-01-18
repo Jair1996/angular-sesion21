@@ -11,7 +11,14 @@ export class NavbarComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   logout() {
+    const backupLocalStorage = localStorage.getItem('user')!;
+
     this.authService.logout();
-    this.router.navigate(['./auth/login']);
+
+    this.router.navigate(['./auth/login']).then((succeds) => {
+      if (!succeds) {
+        localStorage.setItem('user', backupLocalStorage);
+      }
+    });
   }
 }
