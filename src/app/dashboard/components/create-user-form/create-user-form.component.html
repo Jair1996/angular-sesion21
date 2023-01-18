@@ -1,0 +1,127 @@
+<div class="accordion mb-4" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#panelsStayOpen-collapseOne"
+        aria-expanded="true"
+        aria-controls="panelsStayOpen-collapseOne"
+      >
+        ¿Cómo implemente el canDeactivate en esta ruta?
+      </button>
+    </h2>
+    <div
+      id="panelsStayOpen-collapseOne"
+      class="accordion-collapse collapse show"
+      aria-labelledby="panelsStayOpen-headingOne"
+    >
+      <div class="accordion-body">
+        <p>
+          Cuando se encuentra en esta ruta y quiere navegar a otra aparecerá un
+          alert que preguntará si queremos abandonar esta página, este alert
+          solo se ejecutará si solo sí el usuario ha manipulado algún input es
+          decir el <code>createForm.pristine = false</code> (dando a entender
+          que ha querido registrar o está queriendo registrar algún usuario); si
+          el usuario no ha manipulado ningún campo, ha presionado el botón
+          "Crear Usuario" no aparecerá el alert.
+        </p>
+        <p>
+          En la siguiente línea verá como el pristine del formulario cambia
+          dependiendo si algún campo del formulario ha sido tocado:
+        </p>
+        <p>
+          <code> createForm.pristine = {{ createForm.pristine }} </code>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<form
+  (ngSubmit)="createUser()"
+  [formGroup]="createForm"
+  autocomplete="off"
+  class="row g-3"
+>
+  <div class="col-md-6">
+    <label for="txtName" class="form-label">Nombre</label>
+    <input
+      formControlName="name"
+      type="text"
+      class="form-control"
+      id="txtName"
+      [class.is-invalid]="isFieldInvalid('name')"
+    />
+    <div class="invalid-feedback">El campo es requerido</div>
+  </div>
+  <div class="col-md-4">
+    <label for="txtLastname" class="form-label">Apellido</label>
+    <input
+      formControlName="lastname"
+      type="text"
+      class="form-control"
+      [class.is-invalid]="isFieldInvalid('lastname')"
+      id="txtLastname"
+    />
+    <div class="invalid-feedback">El campo es requerido</div>
+  </div>
+  <div class="col-md-2">
+    <label for="txtUsername" class="form-label">Username</label>
+    <input
+      formControlName="username"
+      type="text"
+      class="form-control"
+      [class.is-invalid]="isFieldInvalid('username')"
+      id="txtUsername"
+    />
+    <div class="invalid-feedback">El campo es requerido</div>
+  </div>
+  <div class="col-md-6">
+    <label for="txtEmail" class="form-label">Correo</label>
+    <input
+      formControlName="email"
+      type="email"
+      class="form-control"
+      [class.is-invalid]="isFieldInvalid('email')"
+      id="txtEmail"
+    />
+    <div class="invalid-feedback">El correo es incorrecto</div>
+  </div>
+  <div class="col-md-6">
+    <label for="txtPassword" class="form-label">Contraseña</label>
+    <input
+      formControlName="password"
+      type="password"
+      class="form-control"
+      [class.is-invalid]="isFieldInvalid('password')"
+      id="txtPassword"
+    />
+    <div *ngIf="isFieldInvalid('password')" class="invalid-feedback">
+      El campo es requerido
+    </div>
+  </div>
+  <div class="col-12">
+    <label for="txtAddress" class="form-label">Dirección</label>
+    <input
+      formControlName="address"
+      type="text"
+      class="form-control"
+      [class.is-invalid]="isFieldInvalid('address')"
+      id="txtAddress"
+      placeholder="1234 Main St"
+    />
+    <div *ngIf="isFieldInvalid('address')" class="invalid-feedback">
+      El dirección es requerida
+    </div>
+  </div>
+  <div class="col-12">
+    <button
+      [disabled]="createForm.invalid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Crear Usuario
+    </button>
+  </div>
+</form>

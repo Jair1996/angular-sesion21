@@ -7,6 +7,8 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
+import { CreateUserFormComponent } from './components/create-user-form/create-user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,11 +16,13 @@ import { RouterModule } from '@angular/router';
     HomePageComponent,
     LayoutComponent,
     UserPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    CreateUserFormComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    ReactiveFormsModule,
     RouterModule
   ]
 })

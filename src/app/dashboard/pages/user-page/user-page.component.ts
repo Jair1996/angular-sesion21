@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CreateUserFormComponent } from '../../components/create-user-form/create-user-form.component';
 
 @Component({
   selector: 'app-user-page',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   ]
 })
 export class UserPageComponent {
-
+  @ViewChild('createUserFormComponent') createUserFormComponent!: CreateUserFormComponent;
 }
