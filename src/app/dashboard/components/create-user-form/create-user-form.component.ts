@@ -6,7 +6,13 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-create-user-form',
   templateUrl: './create-user-form.component.html',
-  styles: [],
+  styles: [
+    `
+      .full-width {
+        width: 100%;
+      }
+    `,
+  ],
 })
 export class CreateUserFormComponent {
   createForm: FormGroup = this.fb.group({

@@ -44,88 +44,50 @@
   autocomplete="off"
   class="row g-3"
 >
-  <div class="col-md-6">
-    <!-- <label for="txtName" class="form-label">Nombre</label>
-    <input
-      formControlName="name"
-      type="text"
-      class="form-control"
-      id="txtName"
-      [class.is-invalid]="isFieldInvalid('name')"
-    />
-    <div class="invalid-feedback">El campo es requerido</div> -->
-    <mat-form-field appearance="fill">
+  <div class="col-md-5">
+    <mat-form-field appearance="fill" class="full-width">
       <mat-label>Nombre</mat-label>
       <input matInput placeholder="Jair" formControlName="name">
       <mat-error *ngIf="isFieldInvalid('name')">El campo es requerido</mat-error>
     </mat-form-field>
   </div>
-  <div class="col-md-4">
-    <label for="txtLastname" class="form-label">Apellido</label>
-    <input
-      formControlName="lastname"
-      type="text"
-      class="form-control"
-      [class.is-invalid]="isFieldInvalid('lastname')"
-      id="txtLastname"
-    />
-    <div class="invalid-feedback">El campo es requerido</div>
+  <div class="col-md-5">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Apellido</mat-label>
+      <input matInput placeholder="Tello" formControlName="lastname">
+      <mat-error *ngIf="isFieldInvalid('lastname')">El campo es requerido</mat-error>
+    </mat-form-field>
   </div>
   <div class="col-md-2">
-    <label for="txtUsername" class="form-label">Username</label>
-    <input
-      formControlName="username"
-      type="text"
-      class="form-control"
-      [class.is-invalid]="isFieldInvalid('username')"
-      id="txtUsername"
-    />
-    <div class="invalid-feedback">El campo es requerido</div>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="pepe123" formControlName="username">
+      <mat-error *ngIf="isFieldInvalid('username')">El campo es requerido</mat-error>
+    </mat-form-field>
   </div>
   <div class="col-md-6">
-    <label for="txtEmail" class="form-label">Correo</label>
-    <input
-      formControlName="email"
-      type="email"
-      class="form-control"
-      [class.is-invalid]="isFieldInvalid('email')"
-      id="txtEmail"
-    />
-    <div class="invalid-feedback">El correo es incorrecto</div>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Correo</mat-label>
+      <input type="email" matInput placeholder="pep@example.com" formControlName="email">
+      <mat-error *ngIf="isFieldInvalid('email')">El correo no es válido</mat-error>
+    </mat-form-field>
   </div>
   <div class="col-md-6">
-    <label for="txtPassword" class="form-label">Contraseña</label>
-    <input
-      formControlName="password"
-      type="password"
-      class="form-control"
-      [class.is-invalid]="isFieldInvalid('password')"
-      id="txtPassword"
-    />
-    <div *ngIf="isFieldInvalid('password')" class="invalid-feedback">
-      El campo es requerido
-    </div>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Contraseña</mat-label>
+      <input type="password" matInput placeholder="******" formControlName="password">
+      <mat-error *ngIf="isFieldInvalid('password')">El campo es requerido</mat-error>
+    </mat-form-field>
   </div>
   <div class="col-12">
-    <label for="txtAddress" class="form-label">Dirección</label>
-    <input
-      formControlName="address"
-      type="text"
-      class="form-control"
-      [class.is-invalid]="isFieldInvalid('address')"
-      id="txtAddress"
-      placeholder="1234 Main St"
-    />
-    <div *ngIf="isFieldInvalid('address')" class="invalid-feedback">
-      El dirección es requerida
-    </div>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Dirección</mat-label>
+      <input matInput placeholder="123 Main St" formControlName="address">
+      <mat-error *ngIf="isFieldInvalid('address')">El campo es requerido</mat-error>
+    </mat-form-field>
   </div>
   <div class="col-12">
-    <button
-      [disabled]="createForm.invalid"
-      type="submit"
-      class="btn btn-primary"
-    >
+    <button [disabled]="createForm.invalid" type="submit" mat-raised-button color="primary">
       Crear Usuario
     </button>
   </div>
