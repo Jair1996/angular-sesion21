@@ -45,7 +45,7 @@
   class="row g-3"
 >
   <div class="col-md-6">
-    <label for="txtName" class="form-label">Nombre</label>
+    <!-- <label for="txtName" class="form-label">Nombre</label>
     <input
       formControlName="name"
       type="text"
@@ -53,7 +53,12 @@
       id="txtName"
       [class.is-invalid]="isFieldInvalid('name')"
     />
-    <div class="invalid-feedback">El campo es requerido</div>
+    <div class="invalid-feedback">El campo es requerido</div> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Jair" formControlName="name">
+      <mat-error *ngIf="isFieldInvalid('name')">El campo es requerido</mat-error>
+    </mat-form-field>
   </div>
   <div class="col-md-4">
     <label for="txtLastname" class="form-label">Apellido</label>
