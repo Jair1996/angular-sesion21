@@ -5,7 +5,13 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styles: [],
+  styles: [
+    `
+      .spacer {
+        flex: 1 1 auto;
+      }
+    `,
+  ],
 })
 export class NavbarComponent {
   constructor(private authService: AuthService, private router: Router) {}

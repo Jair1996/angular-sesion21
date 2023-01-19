@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { CreateUserFormComponent } from './components/create-user-form/create-user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     DashboardRoutingModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ]
 })
 export class DashboardModule { }
