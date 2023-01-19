@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { CreateUserFormComponent } from './components/create-user-form/create-user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MaterialModule } from '../material/material.module';
     LayoutComponent,
     UserPageComponent,
     NavbarComponent,
-    CreateUserFormComponent
+    CreateUserFormComponent,
+    ExpansionPanelComponent
   ],
   imports: [
     CommonModule,

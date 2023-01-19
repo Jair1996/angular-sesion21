@@ -1,43 +1,7 @@
-<div class="accordion mb-4" id="accordionPanelsStayOpenExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-      <button
-        class="accordion-button"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#panelsStayOpen-collapseOne"
-        aria-expanded="true"
-        aria-controls="panelsStayOpen-collapseOne"
-      >
-        ¿Cómo implemente el canDeactivate en esta ruta?
-      </button>
-    </h2>
-    <div
-      id="panelsStayOpen-collapseOne"
-      class="accordion-collapse collapse show"
-      aria-labelledby="panelsStayOpen-headingOne"
-    >
-      <div class="accordion-body">
-        <p>
-          Cuando se encuentra en esta ruta y quiere navegar a otra aparecerá un
-          alert que preguntará si queremos abandonar esta página, este alert
-          solo se ejecutará si solo sí el usuario ha manipulado algún input es
-          decir el <code>createForm.pristine = false</code> (dando a entender
-          que ha querido registrar o está queriendo registrar algún usuario); si
-          el usuario no ha manipulado ningún campo, ha presionado el botón
-          "Crear Usuario" no aparecerá el alert.
-        </p>
-        <p>
-          En la siguiente línea verá como el pristine del formulario cambia
-          dependiendo si algún campo del formulario ha sido tocado:
-        </p>
-        <p>
-          <code> createForm.pristine = {{ createForm.pristine }} </code>
-        </p>
-      </div>
-    </div>
-  </div>
+<div class="mb-4">
+  <app-expansion-panel [pristine]="createForm.pristine"></app-expansion-panel>
 </div>
+
 <form
   (ngSubmit)="createUser()"
   [formGroup]="createForm"

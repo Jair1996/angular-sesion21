@@ -1,0 +1,33 @@
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Importante
+      </mat-panel-title>
+      <mat-panel-description>
+        ¿Cómo implemente el canDeactivate en esta ruta?
+        <mat-icon>info</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="accordion-body">
+      <p>
+        Cuando se encuentra en esta ruta y quiere navegar a otra aparecerá un
+        alert que preguntará si queremos abandonar esta página, este alert
+        solo se ejecutará si solo sí el usuario ha manipulado algún input es
+        decir el <code>createForm.pristine = false</code> (dando a entender
+        que ha querido registrar o está queriendo registrar algún usuario); si
+        el usuario no ha manipulado ningún campo, ha presionado el botón
+        "Crear Usuario" no aparecerá el alert.
+      </p>
+      <p>
+        En la siguiente línea verá como el pristine del formulario cambia
+        dependiendo si algún campo del formulario ha sido tocado:
+      </p>
+      <p>
+        <code> createForm.pristine = {{ pristine }} </code>
+      </p>
+    </div>
+
+  </mat-expansion-panel>
+</mat-accordion>
